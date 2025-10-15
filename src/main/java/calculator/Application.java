@@ -7,9 +7,23 @@ import java.util.ArrayList;
 
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        String input;
+        int result = 0;
+        char seperator = ',';
+
+        // 출력 양식 1
         System.out.println("덧셈할 문자열을 입력해 주세요.");
-        String input = Console.readLine();
+
+        // 사용자 입력
+        input = Console.readLine();
+
+        // 커스텀 구분자
+        if(input.startsWith("//")) {
+            seperator = input.charAt(2);
+            System.out.println("커스텀 구분자: " + seperator);
+        }
+
+        // 숫자 합 계산
         int sum = getNumberArray(input).stream().mapToInt(Integer::intValue).sum();
 
         System.out.println("결과 : " + sum);
